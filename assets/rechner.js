@@ -83,6 +83,11 @@
     }
     addLine('Paket ' + P.name + ' · ' + veh, (from ? 'ab ' : '') + base + ' €');
     picked.forEach(function (x) { addLine(x.short, priceOf(x)); });
+    if (totalEl.textContent && totalEl.textContent !== total) {
+      totalEl.classList.remove('pop');
+      void totalEl.offsetWidth;
+      totalEl.classList.add('pop');
+    }
     totalEl.textContent = total;
     anfrageEl.hidden = !anfrage;
 

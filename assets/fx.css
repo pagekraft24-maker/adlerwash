@@ -1,7 +1,21 @@
 /* Adler – Animationen (Gold-Glanz, Einblenden beim Scrollen, Hover-Effekte) */
 
-/* Scroll-Fortschritt oben */
-.fx-progress{position:fixed;top:0;left:0;height:3px;width:100%;background:#C9A24A;transform-origin:0 50%;transform:scaleX(0);z-index:999;pointer-events:none}
+/* Sportwagen-Fahrbahn oben: fährt beim Laden durch und dann beim Scrollen mit */
+.fx-road{position:fixed;top:0;left:0;right:0;height:30px;z-index:999;pointer-events:none}
+.fx-road-line{position:absolute;left:0;right:0;bottom:2px;height:2px;background:rgba(201,162,74,.22)}
+.fx-road-fill{position:absolute;left:0;right:0;bottom:2px;height:2px;background:#C9A24A;transform-origin:0 50%;transform:scaleX(0)}
+.fx-car{position:absolute;left:0;bottom:3px;width:72px;height:24px;will-change:transform;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
+.fx-car svg{display:block;width:100%;height:100%;transition:transform .35s ease}
+.fx-car.back svg{transform:scaleX(-1)}
+.fx-speed{position:absolute;right:100%;top:7px;width:26px;height:12px;opacity:0;transition:opacity .25s ease}
+.fx-car.back .fx-speed{right:auto;left:100%;transform:scaleX(-1)}
+.fx-car.moving .fx-speed{opacity:1}
+.fx-speed i{position:absolute;right:0;height:2px;border-radius:2px;background:#C9A24A}
+.fx-speed i:nth-child(1){top:0;width:60%}.fx-speed i:nth-child(2){top:5px;width:100%}.fx-speed i:nth-child(3){top:10px;width:45%}
+.fx-car.intro{transition:transform 2.2s cubic-bezier(.55,0,.25,1)}
+.fx-car.settle{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.hero-head > .wrap,body > div > header > .wrap{padding-top:18px}
+@media (max-width:560px){.fx-car{width:56px;height:19px}.fx-road{height:26px}}
 
 /* Hero: Text läuft beim Laden nacheinander ein */
 @keyframes fxUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
